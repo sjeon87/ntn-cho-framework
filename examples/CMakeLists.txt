@@ -3,7 +3,7 @@ build_lib_example(
   SOURCE_FILES ntn-cho-leo-basic.cc
   LIBRARIES_TO_LINK
     ${libntn-cho}
-    ${libntn-traffic}
+    ${libtraffic}
     ${libntn-constellation}
     ${libcore}
     ${libnetwork}
@@ -19,7 +19,7 @@ build_lib_example(
   SOURCE_FILES ntn-cho-full-constellation.cc
   LIBRARIES_TO_LINK
     ${libntn-cho}
-    ${libntn-traffic}
+    ${libtraffic}
     ${libntn-constellation}
     ${libntn-observability}
     ${libcore}
@@ -36,7 +36,7 @@ build_lib_example(
   SOURCE_FILES ntn-realistic-mobility-demo.cc
   LIBRARIES_TO_LINK
     ${libntn-cho}
-    ${libntn-traffic}
+    ${libtraffic}
     ${libntn-constellation}
     ${libcore}
     ${libnetwork}
@@ -54,7 +54,7 @@ build_lib_example(
   SOURCE_FILES ntn-cho-handover-traffic.cc
   LIBRARIES_TO_LINK
     ${libntn-cho}
-    ${libntn-traffic}
+    ${libtraffic}
     ${libntn-constellation}
     ${libcore}
     ${libnetwork}
@@ -71,7 +71,7 @@ build_lib_example(
   SOURCE_FILES ntn-cho-real-stack.cc
   LIBRARIES_TO_LINK
     ${libntn-cho}
-    ${libntn-traffic}
+    ${libtraffic}
     ${libntn-constellation}
     ${libntn-observability}
     ${libcore}
