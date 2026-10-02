@@ -88,7 +88,7 @@ git clone https://github.com/hust-diangroup/ns3-ai.git
 cd ..
 ```
 
-The build auto-detects `ns3-ai` (or the toolkit's `ns3-ai-ntn` fork) and only
+The build auto-detects `ns3-ai` (or the toolkit's `ns3-ai` fork) and only
 then compiles the bridge (CMake defines `NTN_CHO_HAS_NS3AI`).
 
 ---

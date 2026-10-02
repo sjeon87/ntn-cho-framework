@@ -40,8 +40,6 @@ set(test_sources
 set(ntn_cho_optional_libs "")
 if(TARGET ${libns3-ai})
   set(ntn_cho_optional_libs ${libns3-ai})
-elseif(TARGET ${libns3-ai-ntn})
-  set(ntn_cho_optional_libs ${libns3-ai-ntn})
 endif()
 
 build_lib(
