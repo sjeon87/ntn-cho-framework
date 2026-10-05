@@ -9,6 +9,12 @@
 
 #include "ntn-orbit-predictor.h"
 
+// Include Boost before SGP4 headers define pi as a macro.
+#ifdef NEED_AND_HAVE_BOOST_BESSEL_FUNC
+#include <boost/math/special_functions/bessel.hpp>
+#endif
+
+
 #include "ns3/satellite-constant-position-mobility-model.h"
 
 #include <ns3/double.h>
@@ -23,6 +29,16 @@ namespace ns3
 {
 
 NS_LOG_COMPONENT_DEFINE("NtnOrbitPredictor");
+
+namespace
+{
+#ifdef NEED_AND_HAVE_BOOST_BESSEL_FUNC
+using boost::math::cyl_bessel_j;
+#else
+using std::cyl_bessel_j;
+#endif
+} // namespace
+
 
 Vector
 NtnOrbitPredictor::PropagateTwoBodyEcef(const Vector& rEcef, const Vector& vEcef, double dtS)
@@ -134,7 +150,7 @@ NtnOrbitPredictor::GeometricBeamGainDb(const GeoCoordinate& uePosition,
         const double u = 1.6163 * std::sin(theta) / denom;
         if (u > 1e-9)
         {
-            const double j1 = std::cyl_bessel_j(1.0, u);
+            const double j1 = cyl_bessel_j(1.0, u);
             const double g = 4.0 * (j1 / u) * (j1 / u);
             rolloffDb = 10.0 * std::log10(std::max(g, 1e-12));
         }
@@ -179,7 +195,7 @@ NtnOrbitPredictor::GainThresholdForMinElevationDb(double minElevDeg, double satA
     {
         return 0.0;
     }
-    const double j1 = std::cyl_bessel_j(1.0, u);
+    const double j1 = cyl_bessel_j(1.0, u);
     const double g = 4.0 * (j1 / u) * (j1 / u);
     return std::max(10.0 * std::log10(std::max(g, 1e-12)), -40.0);
 }
