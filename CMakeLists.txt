@@ -59,6 +59,7 @@ build_lib(
     ${libntn-rrc}
     ${ntn_cho_optional_libs}
   TEST_SOURCES ${test_sources}
+  TEST_LIBRARIES_TO_LINK ${libntn-constellation}
 )
 
 if(ntn_cho_optional_libs)
