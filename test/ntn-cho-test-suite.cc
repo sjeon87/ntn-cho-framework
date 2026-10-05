@@ -826,6 +826,7 @@ class NtnTteEstimatorComputeTteTestCase : public TestCase
         // the pattern in the body frame so the terminal really does traverse it.
         pred->SetGeometricBeam(30.0, bw3dB);
         pred->SetSteeredBeam(false);
+        pred->Initialize(NodeContainer(), nullptr);
 
         auto est = CreateObject<NtnTteEstimator>();
         est->SetOrbitPredictor(pred);
@@ -1919,6 +1920,7 @@ class ChoNtnNtnCandidateReferenceTestCase : public TestCase
         pred->SetKinematicsSource(9, satMob);
         pred->SetGeometricBeam(30.0, 4.0);
         pred->SetSteeredBeam(false);
+        pred->Initialize(NodeContainer(), nullptr);
 
         Ptr<NtnChoAlgorithm> algo = CreateObject<NtnChoAlgorithm>();
         NtnChoAlgorithm::ChoConfig cfg;
